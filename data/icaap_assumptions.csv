@@ -1,0 +1,6 @@
+metric,value,note
+starting_car,0.118,Current CAR assumption
+min_car_target,0.08,Regulatory minimum placeholder
+management_buffer,0.025,Internal buffer for ICAAP lite
+credit_rwa_weighted_avg,1.0,Average RWA density proxy
+tier1_capital_bn_vnd,9500.0,Synthetic Tier 1 capital assumption

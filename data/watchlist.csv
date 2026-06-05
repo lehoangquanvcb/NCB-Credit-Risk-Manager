@@ -1,0 +1,36 @@
+loan_id,customer_id,group_id,industry,ead_bn_vnd,stage,dpd,dscr,watchlist_reason,action_owner,target_action_date
+L00002,CUST-0002,G015,Retail,172.5,Stage 2,0,1.42,Stage 2/3 monitoring,Remedial,2026-06-15
+L00003,CUST-0003,G024,Retail,106.3,Stage 1,0,0.9,Weak DSCR,Remedial,2026-06-18
+L00004,CUST-0004,G019,Energy,172.4,Stage 1,0,0.97,Weak DSCR,Corporate RM,2026-06-21
+L00007,CUST-0007,G016,Manufacturing,119.3,Stage 2,30,2.2,Past due >=30 days,Legal,2026-06-24
+L00008,CUST-0008,G031,Construction,173.3,Stage 1,0,0.2,Weak DSCR,Credit Risk,2026-06-27
+L00009,CUST-0009,G002,Agriculture,47.9,Stage 1,0,0.47,Weak DSCR,Legal,2026-06-30
+L00010,CUST-0010,G015,Manufacturing,77.2,Stage 1,0,0.8,Weak DSCR,Credit Risk,2026-07-03
+L00014,CUST-0014,G025,Energy,128.7,Stage 2,0,0.99,Weak DSCR,Credit Risk,2026-07-06
+L00015,CUST-0015,G028,Real Estate,123.5,Stage 1,0,0.96,Weak DSCR,Corporate RM,2026-07-09
+L00018,CUST-0018,G018,Logistics,330.8,Stage 2,30,1.67,Past due >=30 days,Corporate RM,2026-07-12
+L00020,CUST-0020,G004,Retail,208.1,Stage 1,30,0.93,Past due >=30 days,Remedial,2026-07-15
+L00022,CUST-0022,G011,Real Estate,255.0,Stage 1,0,1.08,Weak DSCR,Credit Risk,2026-07-18
+L00023,CUST-0023,G012,Retail,138.5,Stage 1,30,1.59,Past due >=30 days,Corporate RM,2026-07-21
+L00024,CUST-0024,G015,Energy,137.2,Stage 2,0,1.25,Stage 2/3 monitoring,Legal,2026-07-24
+L00026,CUST-0026,G018,Real Estate,44.9,Stage 2,0,2.21,Stage 2/3 monitoring,Corporate RM,2026-07-27
+L00027,CUST-0027,G023,Manufacturing,97.2,Stage 1,30,2.06,Past due >=30 days,Remedial,2026-07-30
+L00031,CUST-0031,G023,Agriculture,75.9,Stage 2,90,1.11,Past due >=30 days,Corporate RM,2026-08-02
+L00033,CUST-0033,G029,Construction,104.0,Stage 1,0,0.81,Weak DSCR,Remedial,2026-08-05
+L00035,CUST-0035,G004,Manufacturing,189.3,Stage 1,5,0.75,Weak DSCR,Remedial,2026-08-08
+L00040,CUST-0040,G018,Real Estate,152.2,Stage 1,90,0.22,Past due >=30 days,Credit Risk,2026-08-11
+L00041,CUST-0041,G002,Real Estate,59.0,Stage 1,0,0.86,Weak DSCR,Corporate RM,2026-08-14
+L00044,CUST-0044,G018,Construction,70.4,Stage 2,0,1.5,Stage 2/3 monitoring,Corporate RM,2026-08-17
+L00050,CUST-0050,G007,Agriculture,51.1,Stage 1,0,1.03,Weak DSCR,Corporate RM,2026-08-20
+L00051,CUST-0051,G021,Retail,81.4,Stage 3,15,1.77,Stage 2/3 monitoring,Legal,2026-08-23
+L00053,CUST-0053,G017,Real Estate,358.0,Stage 1,0,1.07,Weak DSCR,Corporate RM,2026-08-26
+L00055,CUST-0055,G027,Energy,106.8,Stage 2,0,1.58,Stage 2/3 monitoring,Credit Risk,2026-08-29
+L00056,CUST-0056,G031,Construction,116.8,Stage 2,0,1.5,Stage 2/3 monitoring,Legal,2026-09-01
+L00057,CUST-0057,G004,Healthcare,107.6,Stage 1,45,0.87,Past due >=30 days,Legal,2026-09-04
+L00058,CUST-0058,G010,Technology,70.8,Stage 1,0,0.96,Weak DSCR,Remedial,2026-09-07
+L00060,CUST-0060,G004,Agriculture,289.7,Stage 2,0,1.91,Stage 2/3 monitoring,Legal,2026-09-10
+L00061,CUST-0061,G006,Retail,56.4,Stage 1,30,1.87,Past due >=30 days,Corporate RM,2026-09-13
+L00063,CUST-0063,G004,Retail,98.6,Stage 2,0,2.03,Stage 2/3 monitoring,Corporate RM,2026-09-16
+L00066,CUST-0066,G025,Healthcare,188.5,Stage 1,60,0.64,Past due >=30 days,Legal,2026-09-19
+L00067,CUST-0067,G022,Agriculture,170.4,Stage 1,30,1.47,Past due >=30 days,Corporate RM,2026-09-22
+L00068,CUST-0068,G005,Retail,58.9,Stage 2,0,1.28,Stage 2/3 monitoring,Corporate RM,2026-09-25

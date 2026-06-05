@@ -1,0 +1,6 @@
+rule_id,rule_name,field,operator,threshold,severity,management_action
+POL-001,Minimum DSCR,dscr,>=,1.2,High,Require cash-flow remediation plan or reduce limit
+POL-002,Maximum LTV,ltv,<=,0.8,High,Request additional collateral or lower facility amount
+POL-003,Debt/EBITDA cap,debt_to_ebitda,<=,6.0,Medium,Escalate to Credit Committee for exception approval
+POL-004,Past due monitoring,dpd,<,30,High,Move to watchlist and trigger collection action
+POL-005,Unsecured exposure flag,collateral_type,!=,Unsecured,Medium,Apply tighter tenor/pricing and senior approval

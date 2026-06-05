@@ -1,0 +1,8 @@
+metric,limit,direction
+NPL ratio,0.025,max
+Stage 2 ratio,0.08,max
+Real estate exposure,0.25,max
+Top 20 exposure,0.35,max
+CAR,0.1,min
+Cost of risk,0.018,max
+BB-or-worse exposure,0.22,max

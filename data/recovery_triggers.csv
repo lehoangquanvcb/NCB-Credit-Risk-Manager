@@ -1,0 +1,6 @@
+trigger,indicator,threshold,direction,recovery_action
+NPL ratio > 3.0%,npl_ratio,0.03,max,Freeze new lending to weak segments; accelerate collection and write-off review
+Stage 2 ratio > 10.0%,stage2_ratio,0.1,max,Move to enhanced monitoring; refresh collateral; tighten covenants
+CAR < 10.5%,car,0.105,min,Reduce RWA growth; consider capital plan; prioritize recovery
+Real estate exposure > 25.0%,real_estate_exposure,0.25,max,Stop exceptions in real estate; reduce new disbursement; review top groups
+High EWS loans > 10 accounts,high_ews_count,10.0,max,Assign named remedial owners; weekly watchlist review

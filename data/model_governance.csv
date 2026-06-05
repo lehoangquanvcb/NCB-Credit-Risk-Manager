@@ -1,0 +1,4 @@
+model_name,version,owner,last_validation_date,backtest_result,auc_or_ks,override_rate,limitation,next_action
+Corporate PD Scorecard,1.2,Credit Risk Analytics,2026-03-31,Pass,KS 42%,0.08,Limited default observations in large corporate segment,Recalibrate after 2026 audited FS
+IFRS9 ECL Engine,2.1,Risk Finance / Credit Risk,2026-04-30,Watch,ECL coverage +6% vs realized loss,0.03,Macro overlays still judgemental,Document overlay governance
+EWS Score,0.9,Portfolio Risk,2026-05-15,Pilot,Hit rate 68%,0.12,External alert data not fully automated,Connect CIC/news/tax inputs

@@ -1,0 +1,8 @@
+collateral_type,base_haircut,adverse_haircut,note
+Cash / Deposit,0.02,0.05,near-cash collateral
+Government Bond,0.05,0.1,liquid HQLA
+Real Estate,0.35,0.5,market value volatility
+Machinery,0.5,0.65,specialized assets
+Inventory,0.6,0.75,stock obsolescence
+Receivables,0.45,0.6,collection uncertainty
+Unsecured,1.0,1.0,no eligible collateral

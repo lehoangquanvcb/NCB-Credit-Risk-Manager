@@ -1,0 +1,11 @@
+industry,limit_pct
+Real Estate,0.25
+Construction,0.12
+Manufacturing,0.18
+Power,0.1
+Logistics,0.09
+Retail,0.08
+Agriculture,0.06
+Services,0.07
+Trading,0.08
+Healthcare,0.05

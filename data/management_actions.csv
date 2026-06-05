@@ -1,0 +1,36 @@
+loan_id,customer_id,watchlist_reason,action_owner,target_action_date,management_action,status
+L00002,CUST-0002,Stage 2/3 monitoring,Remedial,2026-06-15,Exit exposure,In progress
+L00003,CUST-0003,Weak DSCR,Remedial,2026-06-18,Exit exposure,Overdue
+L00004,CUST-0004,Weak DSCR,Corporate RM,2026-06-21,Reduce limit,Open
+L00007,CUST-0007,Past due >=30 days,Legal,2026-06-24,Reduce limit,Open
+L00008,CUST-0008,Weak DSCR,Credit Risk,2026-06-27,Request extra collateral,Completed
+L00009,CUST-0009,Weak DSCR,Legal,2026-06-30,Restructure,Overdue
+L00010,CUST-0010,Weak DSCR,Credit Risk,2026-07-03,Request extra collateral,In progress
+L00014,CUST-0014,Weak DSCR,Credit Risk,2026-07-06,Request extra collateral,Overdue
+L00015,CUST-0015,Weak DSCR,Corporate RM,2026-07-09,Restructure,Open
+L00018,CUST-0018,Past due >=30 days,Corporate RM,2026-07-12,Request extra collateral,Completed
+L00020,CUST-0020,Past due >=30 days,Remedial,2026-07-15,Monthly monitoring,Open
+L00022,CUST-0022,Weak DSCR,Credit Risk,2026-07-18,Request extra collateral,In progress
+L00023,CUST-0023,Past due >=30 days,Corporate RM,2026-07-21,Monthly monitoring,Completed
+L00024,CUST-0024,Stage 2/3 monitoring,Legal,2026-07-24,Request extra collateral,Open
+L00026,CUST-0026,Stage 2/3 monitoring,Corporate RM,2026-07-27,Reduce limit,Completed
+L00027,CUST-0027,Past due >=30 days,Remedial,2026-07-30,Reduce limit,In progress
+L00031,CUST-0031,Past due >=30 days,Corporate RM,2026-08-02,Reduce limit,Open
+L00033,CUST-0033,Weak DSCR,Remedial,2026-08-05,Exit exposure,Open
+L00035,CUST-0035,Weak DSCR,Remedial,2026-08-08,Request extra collateral,In progress
+L00040,CUST-0040,Past due >=30 days,Credit Risk,2026-08-11,Restructure,In progress
+L00041,CUST-0041,Weak DSCR,Corporate RM,2026-08-14,Request extra collateral,In progress
+L00044,CUST-0044,Stage 2/3 monitoring,Corporate RM,2026-08-17,Request extra collateral,Open
+L00050,CUST-0050,Weak DSCR,Corporate RM,2026-08-20,Request extra collateral,Open
+L00051,CUST-0051,Stage 2/3 monitoring,Legal,2026-08-23,Reduce limit,Open
+L00053,CUST-0053,Weak DSCR,Corporate RM,2026-08-26,Reduce limit,In progress
+L00055,CUST-0055,Stage 2/3 monitoring,Credit Risk,2026-08-29,Restructure,Open
+L00056,CUST-0056,Stage 2/3 monitoring,Legal,2026-09-01,Request extra collateral,Open
+L00057,CUST-0057,Past due >=30 days,Legal,2026-09-04,Request extra collateral,In progress
+L00058,CUST-0058,Weak DSCR,Remedial,2026-09-07,Reduce limit,Open
+L00060,CUST-0060,Stage 2/3 monitoring,Legal,2026-09-10,Monthly monitoring,In progress
+L00061,CUST-0061,Past due >=30 days,Corporate RM,2026-09-13,Request extra collateral,In progress
+L00063,CUST-0063,Stage 2/3 monitoring,Corporate RM,2026-09-16,Reduce limit,Completed
+L00066,CUST-0066,Past due >=30 days,Legal,2026-09-19,Request extra collateral,In progress
+L00067,CUST-0067,Past due >=30 days,Corporate RM,2026-09-22,Monthly monitoring,Open
+L00068,CUST-0068,Stage 2/3 monitoring,Corporate RM,2026-09-25,Request extra collateral,Overdue

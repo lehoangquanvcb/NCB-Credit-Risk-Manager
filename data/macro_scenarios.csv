@@ -1,0 +1,4 @@
+scenario,gdp_growth,cpi,policy_rate,fx_depreciation,pd_multiplier,lgd_multiplier
+Base,6.5,3.8,4.5,2.0,1.0,1.0
+Mild Stress,4.8,4.8,5.25,5.0,1.35,1.12
+Severe Stress,3.2,6.2,6.5,9.0,1.85,1.25

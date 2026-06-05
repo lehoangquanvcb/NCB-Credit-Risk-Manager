@@ -1,0 +1,8 @@
+limit_type,limit_pct
+Single borrower,0.15
+Group borrower,0.25
+Real Estate,0.25
+Construction,0.18
+Manufacturing,0.3
+Unsecured lending,0.15
+Stage 2 exposure,0.08

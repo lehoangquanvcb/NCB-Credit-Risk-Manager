@@ -1,0 +1,6 @@
+rule_id,rule,field,operator,threshold
+P01,DSCR must be >= 1.20,dscr,>=,1.2
+P02,LTV must be <= 80%,ltv,<=,0.8
+P03,Debt/EBITDA must be <= 6.0,debt_to_ebitda,<=,6.0
+P04,DPD must be < 30 days for new/top-up exposure,dpd,<,30
+P05,Unsecured exposure needs enhanced approval,collateral_type,!=,Unsecured

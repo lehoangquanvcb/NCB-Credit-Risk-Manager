@@ -1,0 +1,5 @@
+customer_id,cic_status,tax_arrears_flag,legal_case_flag,negative_news_count,external_alert_score
+CUST-0001,Normal,No,No,0,5
+CUST-0002,Attention,No,No,1,35
+CUST-0003,Substandard,Yes,No,2,70
+CUST-0004,Normal,No,Yes,1,50

@@ -1,0 +1,121 @@
+loan_id,customer_id,group_id,industry,rating_grade,stage,ead_bn_vnd,pd_12m,lgd,ecl_bn_vnd,dpd,dscr,debt_to_ebitda,ltv,collateral_type,region,tenor_months,product,relationship_manager,annual_revenue_bn_vnd,collateral_value_bn_vnd
+L00001,CUST-0001,G012,Real Estate,BB,Stage 1,117.9,0.0501,0.249,1.47,0,2.99,6.33,0.55,Partly Secured,South,18,Project Finance,RM North 1,596.9,214.4
+L00002,CUST-0002,G015,Retail,BBB,Stage 2,172.5,0.03,0.325,1.68,0,1.42,5.04,0.77,Secured,South,67,Trade Finance,RM South 1,875.2,224.0
+L00003,CUST-0003,G024,Retail,BB,Stage 1,106.3,0.057,0.369,2.24,0,0.9,5.36,0.52,Secured,North,59,Trade Finance,RM North 1,380.1,204.4
+L00004,CUST-0004,G019,Energy,A,Stage 1,172.4,0.0121,0.588,1.23,0,0.97,2.67,0.62,Partly Secured,South,43,Project Finance,RM SME 1,476.5,278.1
+L00005,CUST-0005,G009,Manufacturing,AAA,Stage 1,129.2,0.004,0.498,0.26,5,2.38,4.26,0.66,Unsecured,North,43,Guarantee,RM SME 1,592.8,195.8
+L00006,CUST-0006,G016,Manufacturing,BB,Stage 1,87.2,0.0588,0.555,2.85,0,2.3,2.9,0.62,Secured,North,73,Project Finance,RM North 1,361.6,140.6
+L00007,CUST-0007,G016,Manufacturing,BBB,Stage 2,119.3,0.0304,0.404,1.47,30,2.2,6.38,0.85,Secured,North,18,Term Loan,RM SME 1,357.3,140.4
+L00008,CUST-0008,G031,Construction,A,Stage 1,173.3,0.0147,0.557,1.42,0,0.2,3.6,0.6,Partly Secured,South,62,Trade Finance,RM South 1,325.4,288.8
+L00009,CUST-0009,G002,Agriculture,BB,Stage 1,47.9,0.0591,0.242,0.69,0,0.47,3.88,0.7,Partly Secured,South,26,Project Finance,RM SME 1,214.9,68.4
+L00010,CUST-0010,G015,Manufacturing,AAA,Stage 1,77.2,0.0026,0.415,0.08,0,0.8,9.93,0.49,Unsecured,Central,18,Trade Finance,RM North 1,196.8,157.6
+L00011,CUST-0011,G008,Construction,BBB,Stage 1,88.6,0.0309,0.486,1.33,0,1.68,6.06,0.37,Partly Secured,Central,49,Project Finance,RM North 1,464.9,239.5
+L00012,CUST-0012,G030,Logistics,CCC,Stage 1,69.4,0.2023,0.351,4.93,0,1.57,5.24,0.39,Unsecured,South,82,Project Finance,RM South 1,171.0,177.9
+L00013,CUST-0013,G030,Agriculture,B,Stage 1,54.5,0.1426,0.268,2.08,0,1.12,3.56,0.54,Secured,South,64,Term Loan,RM North 1,108.5,100.9
+L00014,CUST-0014,G025,Energy,A,Stage 2,128.7,0.0104,0.284,0.38,0,0.99,3.57,0.84,Secured,South,66,Project Finance,RM North 2,620.9,153.2
+L00015,CUST-0015,G028,Real Estate,B,Stage 1,123.5,0.1163,0.435,6.25,0,0.96,6.39,0.56,Secured,Central,63,Trade Finance,RM SME 1,261.0,220.5
+L00016,CUST-0016,G021,Trading,BBB,Stage 1,98.9,0.0336,0.236,0.78,15,2.13,5.71,0.45,Secured,North,68,Working Capital,RM North 1,219.3,219.8
+L00017,CUST-0017,G018,Retail,BBB,Stage 1,212.4,0.0289,0.595,3.65,0,1.18,5.12,0.51,Secured,South,48,Trade Finance,RM SME 1,827.8,416.5
+L00018,CUST-0018,G018,Logistics,A,Stage 2,330.8,0.0154,0.389,1.98,30,1.67,3.15,0.51,Unsecured,North,21,Term Loan,RM North 1,1653.4,648.6
+L00019,CUST-0019,G003,Construction,BBB,Stage 1,404.2,0.0275,0.244,2.71,0,1.61,7.07,0.48,Secured,North,72,Working Capital,RM North 1,923.9,842.1
+L00020,CUST-0020,G004,Retail,BBB,Stage 1,208.1,0.0237,0.571,2.82,30,0.93,6.58,0.38,Secured,South,44,Project Finance,RM South 1,570.5,547.6
+L00021,CUST-0021,G008,Technology,BBB,Stage 1,87.8,0.0232,0.592,1.21,5,2.08,6.25,0.49,Secured,North,48,Guarantee,RM SME 1,404.7,179.2
+L00022,CUST-0022,G011,Real Estate,A,Stage 1,255.0,0.0158,0.239,0.96,0,1.08,4.54,0.46,Unsecured,North,38,Working Capital,RM North 1,1373.8,554.3
+L00023,CUST-0023,G012,Retail,A,Stage 1,138.5,0.0121,0.427,0.72,30,1.59,3.67,0.72,Secured,North,25,Working Capital,RM North 2,485.2,192.4
+L00024,CUST-0024,G015,Energy,BBB,Stage 2,137.2,0.0287,0.315,1.24,0,1.25,5.57,0.6,Secured,South,78,Project Finance,FI/Corp RM,284.8,228.7
+L00025,CUST-0025,G007,Retail,AA,Stage 1,75.5,0.0068,0.445,0.23,15,2.24,0.5,0.65,Partly Secured,South,68,Guarantee,FI/Corp RM,117.5,116.2
+L00026,CUST-0026,G018,Real Estate,B,Stage 2,44.9,0.1186,0.282,1.5,0,2.21,4.61,0.74,Secured,Central,58,Guarantee,RM South 1,108.6,60.7
+L00027,CUST-0027,G023,Manufacturing,BBB,Stage 1,97.2,0.023,0.417,0.93,30,2.06,5.28,0.56,Secured,North,40,Term Loan,RM South 1,197.1,173.6
+L00028,CUST-0028,G026,Real Estate,BBB,Stage 1,103.7,0.0327,0.4,1.36,0,2.18,6.88,0.5,Secured,South,71,Working Capital,RM North 2,436.6,207.4
+L00029,CUST-0029,G025,Trading,B,Stage 1,342.3,0.1341,0.512,23.5,0,1.51,0.87,0.76,Secured,Central,51,Guarantee,RM SME 1,680.3,450.4
+L00030,CUST-0030,G007,Agriculture,BBB,Stage 1,158.6,0.0335,0.37,1.97,0,1.26,2.35,0.65,Partly Secured,Central,43,Term Loan,RM South 1,559.1,244.0
+L00031,CUST-0031,G023,Agriculture,BB,Stage 2,75.9,0.0688,0.379,1.98,90,1.11,5.14,0.54,Secured,South,44,Guarantee,RM North 2,324.6,140.6
+L00032,CUST-0032,G016,Trading,BBB,Stage 1,66.4,0.0323,0.37,0.79,15,1.37,3.45,0.55,Secured,South,28,Working Capital,RM North 1,253.9,120.7
+L00033,CUST-0033,G029,Construction,BB,Stage 1,104.0,0.0588,0.6,3.67,0,0.81,4.28,0.83,Unsecured,South,18,Guarantee,RM North 1,239.1,125.3
+L00034,CUST-0034,G022,Manufacturing,BB,Stage 1,178.3,0.0534,0.431,4.1,0,1.51,4.63,0.62,Partly Secured,South,51,Working Capital,FI/Corp RM,841.0,287.6
+L00035,CUST-0035,G004,Manufacturing,AA,Stage 1,189.3,0.0079,0.5,0.75,5,0.75,3.2,0.72,Unsecured,North,75,Project Finance,RM South 1,825.7,262.9
+L00036,CUST-0036,G014,Construction,CCC,Stage 1,199.9,0.2575,0.367,18.89,0,2.27,5.57,0.62,Unsecured,South,16,Trade Finance,RM South 1,890.7,322.4
+L00037,CUST-0037,G018,Retail,CCC,Stage 1,91.0,0.3344,0.586,17.83,0,1.16,4.68,0.48,Partly Secured,South,73,Term Loan,RM South 1,184.2,189.6
+L00038,CUST-0038,G015,Manufacturing,BBB,Stage 1,61.6,0.0293,0.289,0.52,15,1.37,4.72,0.74,Secured,North,71,Project Finance,RM SME 1,122.9,83.2
+L00039,CUST-0039,G016,Logistics,A,Stage 1,597.1,0.0157,0.488,4.57,0,1.87,1.92,0.48,Secured,South,31,Project Finance,RM North 1,3111.0,1244.0
+L00040,CUST-0040,G018,Real Estate,A,Stage 1,152.2,0.013,0.393,0.78,90,0.22,3.31,0.8,Unsecured,Central,57,Trade Finance,RM North 1,470.3,190.2
+L00041,CUST-0041,G002,Real Estate,BB,Stage 1,59.0,0.0557,0.584,1.92,0,0.86,4.39,0.62,Partly Secured,North,23,Guarantee,RM North 2,159.5,95.2
+L00042,CUST-0042,G018,Retail,A,Stage 1,79.6,0.0098,0.61,0.48,0,1.51,5.11,0.72,Secured,Central,66,Trade Finance,RM South 1,275.0,110.6
+L00043,CUST-0043,G028,Real Estate,BBB,Stage 1,414.6,0.0239,0.543,5.38,5,1.66,6.09,0.52,Secured,South,62,Project Finance,RM SME 1,1721.2,797.3
+L00044,CUST-0044,G018,Construction,A,Stage 2,70.4,0.0101,0.604,0.43,0,1.5,3.2,0.77,Secured,South,37,Project Finance,RM South 1,374.7,91.4
+L00045,CUST-0045,G017,Real Estate,BB,Stage 1,81.8,0.0725,0.553,3.28,5,1.91,1.46,0.38,Unsecured,North,16,Project Finance,RM South 1,216.4,215.3
+L00046,CUST-0046,G002,Agriculture,AAA,Stage 1,100.9,0.004,0.459,0.19,0,1.64,3.57,0.49,Partly Secured,North,81,Guarantee,FI/Corp RM,524.6,205.9
+L00047,CUST-0047,G011,Healthcare,B,Stage 1,58.9,0.1306,0.239,1.84,0,1.96,4.21,0.41,Secured,Central,44,Working Capital,RM North 1,94.2,143.7
+L00048,CUST-0048,G024,Agriculture,A,Stage 1,36.0,0.0135,0.55,0.27,0,2.06,4.21,0.35,Secured,North,76,Term Loan,RM South 1,133.9,102.9
+L00049,CUST-0049,G014,Real Estate,BBB,Stage 1,85.1,0.0264,0.54,1.21,0,1.35,4.08,0.38,Secured,South,60,Working Capital,RM South 1,343.5,223.9
+L00050,CUST-0050,G007,Agriculture,B,Stage 1,51.1,0.11,0.353,1.98,0,1.03,0.5,0.75,Secured,North,68,Term Loan,RM South 1,98.3,68.1
+L00051,CUST-0051,G021,Retail,B,Stage 3,81.4,0.1308,0.429,4.57,15,1.77,2.96,0.73,Secured,South,66,Term Loan,FI/Corp RM,167.8,111.5
+L00052,CUST-0052,G014,Retail,B,Stage 1,105.3,0.1013,0.585,6.24,0,1.63,2.37,0.62,Secured,South,26,Term Loan,RM North 2,334.5,169.8
+L00053,CUST-0053,G017,Real Estate,BB,Stage 1,358.0,0.0718,0.607,15.6,0,1.07,3.03,0.51,Unsecured,North,38,Trade Finance,FI/Corp RM,1920.6,702.0
+L00054,CUST-0054,G009,Retail,AA,Stage 1,22.2,0.0053,0.483,0.06,0,2.54,6.71,0.43,Partly Secured,South,45,Trade Finance,RM North 2,86.2,51.6
+L00055,CUST-0055,G027,Energy,AA,Stage 2,106.8,0.0073,0.508,0.4,0,1.58,6.15,0.56,Partly Secured,South,47,Trade Finance,RM South 1,558.8,190.7
+L00056,CUST-0056,G031,Construction,A,Stage 2,116.8,0.0095,0.475,0.53,0,1.5,3.6,0.65,Secured,North,15,Project Finance,RM South 1,551.0,179.7
+L00057,CUST-0057,G004,Healthcare,B,Stage 1,107.6,0.1175,0.263,3.33,45,0.87,1.77,0.55,Secured,South,51,Trade Finance,FI/Corp RM,362.6,195.6
+L00058,CUST-0058,G010,Technology,BBB,Stage 1,70.8,0.0264,0.276,0.52,0,0.96,3.98,0.68,Secured,South,23,Term Loan,RM South 1,328.4,104.1
+L00059,CUST-0059,G017,Logistics,AA,Stage 1,38.3,0.0072,0.26,0.07,0,1.93,5.49,0.66,Partly Secured,Central,65,Guarantee,RM North 2,60.2,58.0
+L00060,CUST-0060,G004,Agriculture,CCC,Stage 2,289.7,0.2226,0.402,25.92,0,1.91,2.01,0.83,Secured,North,61,Project Finance,RM North 1,561.0,349.0
+L00061,CUST-0061,G006,Retail,A,Stage 1,56.4,0.0148,0.38,0.32,30,1.87,3.89,0.76,Partly Secured,North,78,Guarantee,RM North 2,271.7,74.2
+L00062,CUST-0062,G018,Manufacturing,B,Stage 1,37.0,0.1221,0.577,2.61,0,2.08,4.95,0.47,Unsecured,North,65,Term Loan,FI/Corp RM,173.4,78.7
+L00063,CUST-0063,G004,Retail,BB,Stage 2,98.6,0.0428,0.462,1.95,0,2.03,2.79,0.41,Secured,South,38,Project Finance,RM North 1,239.7,240.5
+L00064,CUST-0064,G014,Manufacturing,BBB,Stage 1,120.1,0.0271,0.34,1.11,5,1.43,2.19,0.69,Secured,South,81,Trade Finance,FI/Corp RM,435.1,174.1
+L00065,CUST-0065,G006,Construction,BB,Stage 1,119.8,0.0714,0.57,4.88,0,1.66,4.67,0.51,Secured,South,41,Project Finance,RM South 1,470.1,234.9
+L00066,CUST-0066,G025,Healthcare,BBB,Stage 1,188.5,0.0203,0.544,2.08,60,0.64,3.74,0.76,Unsecured,South,35,Project Finance,RM North 1,937.0,248.0
+L00067,CUST-0067,G022,Agriculture,BBB,Stage 1,170.4,0.0296,0.471,2.38,30,1.47,8.39,0.77,Partly Secured,North,77,Term Loan,RM North 2,666.7,221.3
+L00068,CUST-0068,G005,Retail,B,Stage 2,58.9,0.1368,0.395,3.18,0,1.28,2.94,0.66,Unsecured,Central,38,Working Capital,RM South 1,185.6,89.2
+L00069,CUST-0069,G017,Trading,A,Stage 1,62.3,0.0129,0.256,0.21,90,1.9,4.55,0.57,Partly Secured,Central,17,Working Capital,RM North 2,186.7,109.3
+L00070,CUST-0070,G026,Agriculture,BBB,Stage 3,339.2,0.0283,0.294,2.82,0,1.1,1.1,0.76,Partly Secured,North,45,Working Capital,RM North 1,1086.6,446.3
+L00071,CUST-0071,G021,Real Estate,BBB,Stage 2,134.4,0.0299,0.326,1.31,0,0.81,7.24,0.63,Unsecured,South,69,Trade Finance,RM SME 1,552.1,213.3
+L00072,CUST-0072,G020,Manufacturing,A,Stage 1,45.4,0.0099,0.239,0.11,15,1.96,4.88,0.6,Secured,North,25,Trade Finance,RM SME 1,225.6,75.7
+L00073,CUST-0073,G029,Retail,BBB,Stage 2,169.9,0.0296,0.564,2.84,0,1.32,7.4,0.5,Secured,Central,45,Trade Finance,RM North 1,563.3,339.8
+L00074,CUST-0074,G029,Trading,BBB,Stage 1,105.7,0.02,0.439,0.93,5,1.0,2.45,0.38,Secured,South,21,Working Capital,RM North 2,263.3,278.2
+L00075,CUST-0075,G024,Real Estate,B,Stage 1,114.4,0.1365,0.373,5.82,0,1.17,2.79,0.62,Partly Secured,North,61,Guarantee,RM North 2,279.9,184.5
+L00076,CUST-0076,G010,Agriculture,AA,Stage 2,91.1,0.0047,0.388,0.17,0,1.49,6.97,0.38,Secured,Central,46,Term Loan,RM SME 1,408.5,239.7
+L00077,CUST-0077,G001,Healthcare,A,Stage 1,329.8,0.0133,0.317,1.39,90,2.39,3.72,0.8,Unsecured,North,35,Working Capital,RM SME 1,1571.9,412.2
+L00078,CUST-0078,G010,Technology,BBB,Stage 1,58.8,0.0224,0.493,0.65,0,1.53,4.34,0.64,Secured,North,28,Term Loan,RM SME 1,113.0,91.9
+L00079,CUST-0079,G012,Energy,A,Stage 1,209.0,0.0116,0.341,0.83,0,1.55,2.0,0.39,Secured,North,52,Working Capital,FI/Corp RM,369.1,535.9
+L00080,CUST-0080,G025,Retail,BB,Stage 3,321.1,0.0664,0.329,7.01,0,1.68,2.92,0.49,Secured,South,60,Guarantee,RM SME 1,1245.1,655.3
+L00081,CUST-0081,G025,Retail,BBB,Stage 1,97.2,0.0253,0.521,1.28,90,1.18,1.03,0.82,Secured,South,79,Working Capital,RM North 2,202.6,118.5
+L00082,CUST-0082,G030,Logistics,B,Stage 1,142.5,0.122,0.275,4.78,5,1.44,5.93,0.37,Secured,North,43,Guarantee,RM North 1,683.8,385.1
+L00083,CUST-0083,G029,Energy,BBB,Stage 1,63.8,0.0207,0.27,0.36,0,1.29,5.11,0.56,Partly Secured,North,23,Project Finance,RM SME 1,174.9,113.9
+L00084,CUST-0084,G010,Real Estate,BB,Stage 1,78.0,0.0413,0.487,1.57,0,2.17,7.77,0.65,Partly Secured,North,71,Trade Finance,FI/Corp RM,161.9,120.0
+L00085,CUST-0085,G001,Real Estate,A,Stage 2,34.9,0.013,0.499,0.23,0,1.05,3.84,0.57,Secured,South,57,Project Finance,FI/Corp RM,180.9,61.2
+L00086,CUST-0086,G029,Agriculture,A,Stage 1,73.1,0.0126,0.6,0.55,0,1.37,2.61,0.85,Secured,North,62,Working Capital,RM North 2,158.1,86.0
+L00087,CUST-0087,G004,Real Estate,AA,Stage 2,195.9,0.0074,0.392,0.57,0,2.4,4.62,0.41,Secured,North,19,Trade Finance,RM North 2,517.0,477.8
+L00088,CUST-0088,G022,Technology,AA,Stage 1,36.9,0.008,0.467,0.14,5,1.88,4.95,0.69,Secured,Central,34,Guarantee,RM North 1,78.0,53.5
+L00089,CUST-0089,G009,Construction,CCC,Stage 1,120.5,0.287,0.237,8.2,5,2.19,6.42,0.71,Secured,South,67,Working Capital,RM North 1,236.4,169.7
+L00090,CUST-0090,G005,Construction,A,Stage 1,248.6,0.0101,0.378,0.95,0,1.22,4.24,0.82,Partly Secured,South,71,Trade Finance,RM South 1,393.9,303.2
+L00091,CUST-0091,G007,Retail,A,Stage 2,159.6,0.0138,0.522,1.15,0,1.72,3.79,0.7,Partly Secured,North,43,Working Capital,RM South 1,274.8,228.0
+L00092,CUST-0092,G009,Real Estate,BB,Stage 2,161.5,0.067,0.503,5.44,0,1.57,3.85,0.82,Secured,North,69,Trade Finance,RM North 2,355.1,197.0
+L00093,CUST-0093,G031,Real Estate,AA,Stage 1,75.2,0.005,0.572,0.22,0,2.36,5.57,0.41,Secured,North,72,Trade Finance,RM North 2,128.9,183.4
+L00094,CUST-0094,G028,Manufacturing,B,Stage 1,641.6,0.0959,0.278,17.11,15,1.09,2.41,0.65,Unsecured,Central,39,Project Finance,FI/Corp RM,2479.5,987.1
+L00095,CUST-0095,G007,Agriculture,AA,Stage 1,167.0,0.0053,0.302,0.27,0,1.33,4.87,0.81,Partly Secured,South,76,Trade Finance,RM South 1,705.2,206.2
+L00096,CUST-0096,G020,Healthcare,AA,Stage 1,401.4,0.0063,0.584,1.48,0,2.19,4.25,0.86,Secured,South,32,Working Capital,FI/Corp RM,1234.1,466.7
+L00097,CUST-0097,G029,Real Estate,CCC,Stage 1,246.6,0.2474,0.323,19.71,0,1.61,6.85,0.52,Unsecured,North,29,Term Loan,FI/Corp RM,683.6,474.2
+L00098,CUST-0098,G003,Manufacturing,BBB,Stage 2,212.7,0.0296,0.423,2.66,15,1.05,3.34,0.61,Partly Secured,South,61,Term Loan,RM North 2,748.3,348.7
+L00099,CUST-0099,G031,Logistics,A,Stage 2,647.1,0.0135,0.288,2.52,0,1.84,3.99,0.56,Secured,Central,57,Project Finance,RM North 2,3235.5,1155.5
+L00100,CUST-0100,G017,Construction,A,Stage 1,83.4,0.01,0.607,0.51,15,1.3,3.41,0.81,Unsecured,North,22,Guarantee,FI/Corp RM,409.0,103.0
+L00101,CUST-0101,G010,Trading,A,Stage 3,136.5,0.011,0.313,0.47,5,1.3,4.57,0.56,Secured,South,71,Term Loan,RM SME 1,228.5,243.7
+L00102,CUST-0102,G024,Energy,A,Stage 1,76.9,0.0146,0.285,0.32,0,2.43,3.59,0.83,Partly Secured,South,26,Project Finance,RM North 2,171.2,92.7
+L00103,CUST-0103,G022,Retail,BBB,Stage 1,263.7,0.0246,0.432,2.8,0,1.56,3.0,0.52,Secured,Central,69,Trade Finance,RM SME 1,645.3,507.1
+L00104,CUST-0104,G007,Technology,B,Stage 1,355.0,0.0872,0.423,13.09,5,1.8,4.61,0.42,Partly Secured,South,12,Working Capital,RM South 1,886.6,845.2
+L00105,CUST-0105,G030,Logistics,BBB,Stage 1,130.1,0.0193,0.463,1.16,30,1.19,7.27,0.39,Unsecured,South,69,Trade Finance,FI/Corp RM,492.4,333.6
+L00106,CUST-0106,G009,Construction,BB,Stage 2,19.0,0.0705,0.253,0.34,0,1.9,7.64,0.84,Partly Secured,Central,68,Working Capital,RM North 2,60.1,22.6
+L00107,CUST-0107,G006,Agriculture,AA,Stage 1,188.1,0.006,0.591,0.67,0,1.87,2.81,0.7,Secured,Central,68,Guarantee,FI/Corp RM,319.2,268.7
+L00108,CUST-0108,G027,Technology,BBB,Stage 1,226.6,0.0327,0.352,2.61,0,1.36,6.55,0.7,Partly Secured,North,59,Project Finance,FI/Corp RM,678.5,323.7
+L00109,CUST-0109,G017,Logistics,A,Stage 1,90.7,0.0139,0.616,0.78,5,1.76,3.36,0.84,Secured,South,45,Project Finance,RM North 1,326.1,108.0
+L00110,CUST-0110,G014,Healthcare,AA,Stage 1,89.2,0.0057,0.283,0.14,0,0.98,5.42,0.79,Unsecured,North,62,Term Loan,RM North 1,170.1,112.9
+L00111,CUST-0111,G031,Trading,B,Stage 1,93.3,0.1197,0.383,4.28,0,1.64,3.05,0.35,Secured,South,31,Project Finance,RM South 1,451.0,266.6
+L00112,CUST-0112,G030,Real Estate,BB,Stage 2,92.6,0.0444,0.356,1.46,0,1.78,2.95,0.88,Secured,South,68,Guarantee,RM North 1,158.1,105.2
+L00113,CUST-0113,G013,Manufacturing,BBB,Stage 1,39.7,0.0251,0.466,0.46,0,1.15,8.15,0.87,Partly Secured,South,52,Term Loan,RM North 2,206.4,45.6
+L00114,CUST-0114,G017,Energy,AA,Stage 1,153.9,0.0065,0.253,0.25,0,1.08,5.34,0.45,Secured,North,45,Trade Finance,RM South 1,291.9,342.0
+L00115,CUST-0115,G025,Construction,BBB,Stage 1,72.9,0.0292,0.425,0.9,0,1.47,4.58,0.39,Secured,Central,48,Project Finance,FI/Corp RM,355.3,186.9
+L00116,CUST-0116,G007,Energy,BBB,Stage 1,48.1,0.0305,0.609,0.89,0,2.39,5.13,0.82,Secured,South,52,Trade Finance,FI/Corp RM,245.8,58.7
+L00117,CUST-0117,G010,Construction,BBB,Stage 1,117.5,0.0217,0.499,1.27,0,1.5,5.21,0.7,Partly Secured,Central,14,Trade Finance,RM North 1,636.6,167.9
+L00118,CUST-0118,G015,Manufacturing,BBB,Stage 1,96.6,0.0292,0.3,0.85,0,1.86,6.89,0.78,Secured,South,22,Project Finance,FI/Corp RM,454.8,123.8
+L00119,CUST-0119,G031,Healthcare,A,Stage 2,65.0,0.0106,0.275,0.19,0,2.24,0.83,0.81,Partly Secured,Central,29,Working Capital,RM North 1,300.2,80.2
+L00120,CUST-0120,G015,Retail,BB,Stage 2,69.4,0.0441,0.367,1.12,0,1.07,9.75,0.67,Partly Secured,South,20,Trade Finance,RM SME 1,282.5,103.6
