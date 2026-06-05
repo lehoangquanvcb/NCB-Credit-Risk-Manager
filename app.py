@@ -109,7 +109,7 @@ st.sidebar.markdown('<div class="ncb-sidebar-section">Navigation</div>', unsafe_
 selected_tab = st.sidebar.radio(
     "Navigation",
     menu_options,
-    index=0,
+    index=1,
     label_visibility="collapsed",
 )
 
@@ -166,61 +166,61 @@ Ngân hàng cần kiểm soát:
 ## 2. Ý nghĩa của từng tab (đánh số từ 1 đến 20)
 
 ### 1. Executive Dashboard
-Tổng quan rủi ro tín dụng của ngân hàng: tổng dư nợ, ECL, stressed ECL, weighted PD, NPL/Stage 3 và policy breaches.
+Tổng quan rủi ro tín dụng của ngân hàng thông qua các KPI chính, ECL, NPL/Stage 3, cơ cấu danh mục và cảnh báo trọng yếu.
 
 ### 2. Portfolio Overview
-Theo dõi chất lượng danh mục theo ngành, ECL, PD bình quân và EWS.
+Theo dõi chất lượng danh mục tín dụng theo ngành, ECL, PD trung bình và điểm cảnh báo sớm.
 
 ### 3. Risk Appetite
-So sánh các chỉ tiêu rủi ro thực tế với khẩu vị rủi ro đã phê duyệt.
+Giám sát mức độ tuân thủ khẩu vị rủi ro: NPL, Stage 2, tập trung ngành, nhóm khách hàng và các ngưỡng quản trị.
 
 ### 4. Concentration
-Đo lường rủi ro tập trung theo ngành, nhóm khách hàng và top borrowers.
+Phân tích rủi ro tập trung theo ngành, nhóm khách hàng và Top borrowers.
 
 ### 5. Policy Rule Engine
-Kiểm tra các khoản vay vi phạm chính sách tín dụng, điều kiện cấp tín dụng và ngoại lệ.
+Kiểm tra các khoản vay vi phạm chính sách tín dụng và giải thích loại vi phạm.
 
 ### 6. Limit Monitoring
-Theo dõi giới hạn single borrower, group borrower, ngành, collateral và Stage 2.
+Theo dõi giới hạn tín dụng: single borrower, group borrower, ngành, unsecured lending và Stage 2.
 
 ### 7. Single Customer View
-Cung cấp góc nhìn 360 độ về từng khách hàng/khoản vay.
+Cung cấp góc nhìn 360 độ về từng khách hàng: dư nợ, rating, PD, LGD, ECL, DPD, DSCR, LTV và cảnh báo.
 
 ### 8. Memo Generator
-Tạo bản nháp Credit Approval Memo từ dữ liệu khách hàng.
+Tự động tạo bản nháp Credit Approval Memo phục vụ thẩm định/phê duyệt tín dụng.
 
 ### 9. EWS & External Alerts
-Kết hợp tín hiệu nội bộ và cảnh báo bên ngoài để phát hiện suy giảm sớm.
+Tổng hợp cảnh báo sớm từ tín hiệu tài chính, hành vi trả nợ và cảnh báo bên ngoài.
 
 ### 10. IFRS9 & Stress
-Tính toán ECL theo IFRS9 và mô phỏng tác động của stress scenario.
+Tính toán IFRS9 ECL và mô phỏng tác động của các kịch bản stress lên dự phòng.
 
 ### 11. Migration
-Theo dõi ma trận chuyển hạng tín dụng, downgrade và default migration.
+Theo dõi ma trận chuyển hạng tín dụng để đánh giá xu hướng nâng/hạ hạng và rủi ro suy giảm chất lượng.
 
 ### 12. Basel Capital
-Tính RWA, vốn yêu cầu và RAROC cho danh mục tín dụng.
+Tính RWA, capital requirement và RAROC để đánh giá hiệu quả sử dụng vốn.
 
 ### 13. Watchlist & Actions
-Theo dõi khách hàng watchlist và tiến độ hành động quản lý.
+Quản lý danh sách khách hàng cần giám sát và các hành động xử lý sau cảnh báo.
 
 ### 14. Board Pack Export
-Xuất báo cáo quản trị cho Ban điều hành/HĐQT/Ủy ban Rủi ro.
+Xuất báo cáo quản trị rủi ro cho Ban điều hành/HĐQT/Ủy ban Rủi ro.
 
 ### 15. Model Governance
-Quản trị mô hình: owner, validation, override rate, backtesting và limitation.
+Theo dõi quản trị mô hình: version, owner, validation, backtesting, override rate và hạn chế mô hình.
 
 ### 16. ICAAP Lite
-Đánh giá mức đủ vốn nội bộ và CAR sau stress.
+Đánh giá mức đủ vốn nội bộ và tác động của stress lên CAR.
 
 ### 17. Recovery Plan
-Đề xuất hành động phục hồi khi NPL, Stage 2 hoặc CAR vượt ngưỡng.
+Đề xuất hành động phục hồi khi NPL, Stage 2, CAR hoặc các chỉ số rủi ro vượt ngưỡng.
 
 ### 18. Credit Strategy Simulator
-Mô phỏng tác động của chiến lược tăng/giảm tín dụng theo ngành.
+Mô phỏng thay đổi chiến lược tín dụng theo ngành và tác động tới ECL, RWA, RAROC.
 
 ### 19. Collateral Haircut
-Đánh giá giá trị tài sản bảo đảm sau haircut và collateral shortfall.
+Phân tích giá trị tài sản bảo đảm sau haircut và xác định phần thiếu hụt tài sản bảo đảm.
 
 ### 20. Risk Committee Pack
 Tạo bộ tài liệu phục vụ họp Ủy ban Rủi ro.
@@ -229,7 +229,7 @@ Tạo bộ tài liệu phục vụ họp Ủy ban Rủi ro.
 
 ## 3. Điểm mạnh của platform này
 
-Kết hợp kinh nghiệm của tôi trong các lĩnh vực credit rating, corporate banking, macro analysis, credit risk management, IFRS9, Basel, stress testing, Python/Excel dashboard để chuyển dữ liệu tín dụng thành thông tin quản trị phục vụ điều hành danh mục tín dụng.
+Kết hợp kinh nghiệm của tôi trong các lĩnh vực credit rating, corporate banking, macro analysis, credit risk management, IFRS9, Basel, stress testing, Python/Excel và dashboard design để chuyển dữ liệu tín dụng thành thông tin quản trị phục vụ điều hành danh mục tín dụng.
 """)
 
 elif selected_tab == menu_options[1]:
@@ -362,7 +362,6 @@ elif selected_tab == menu_options[15]:
     st.markdown("Quản trị mô hình cho PD, IFRS9 ECL, EWS: owner, version, validation date, backtesting, override rate, limitation và next action.")
     st.dataframe(model_gov.style.format({"override_rate":"{:.1%}"}),use_container_width=True)
     st.plotly_chart(px.bar(model_gov,x="model_name",y="override_rate",color="backtest_result",title="Model Override Rate"),use_container_width=True)
-
 
 elif selected_tab == menu_options[16]:
     st.subheader("1️⃣6️⃣ ICAAP Lite")
