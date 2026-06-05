@@ -82,6 +82,7 @@ st.sidebar.markdown(
 )
 
 menu_options = [
+    "0  Giải thích",
     "1  Executive Dashboard",
     "2  Portfolio Overview",
     "3  Risk Appetite",
@@ -97,12 +98,11 @@ menu_options = [
     "13 Watchlist & Actions",
     "14 Board Pack Export",
     "15 Model Governance",
-    "16 NCB Interview Mode",
-    "17 ICAAP Lite",
-    "18 Recovery Plan",
-    "19 Credit Strategy Simulator",
-    "20 Collateral Haircut",
-    "21 Risk Committee Pack",
+    "16 ICAAP Lite",
+    "17 Recovery Plan",
+    "18 Credit Strategy Simulator",
+    "19 Collateral Haircut",
+    "20 Risk Committee Pack",
 ]
 
 st.sidebar.markdown('<div class="ncb-sidebar-section">Navigation</div>', unsafe_allow_html=True)
@@ -145,152 +145,108 @@ kpi_row([
 
 
 if selected_tab == menu_options[0]:
-    st.subheader("1️⃣ Executive Risk Dashboard")
+    st.subheader("ℹ️ Giải thích")
 
-    # --- Executive Dashboard charts: 3 charts exactly as target layout ---
-    chart1, chart2, chart3 = st.columns([1, 1.15, 1.15], gap="medium")
+    st.markdown("""
+# Giải thích ý nghĩa của platform này
 
-    # 1) ECL Overview: Base ECL vs Stressed ECL
-    with chart1:
-        ecl_df = pd.DataFrame({
-            "Type": ["Base ECL", "Stressed ECL"],
-            "Value": [float(ecl), float(stressed)],
-        })
-        fig_ecl = px.bar(
-            ecl_df,
-            x="Type",
-            y="Value",
-            text="Value",
-            title="ECL Overview (bn VND)",
-            color="Type",
-            color_discrete_map={"Base ECL": "#3478f6", "Stressed ECL": "#ef4444"},
-        )
-        fig_ecl.update_traces(
-            texttemplate="%{text:.1f}",
-            textposition="outside",
-            marker_line_width=0,
-            showlegend=False,
-        )
-        fig_ecl.update_layout(
-            template="plotly_dark",
-            height=330,
-            margin=dict(l=8, r=8, t=48, b=8),
-            paper_bgcolor="rgba(0,0,0,0)",
-            plot_bgcolor="rgba(0,0,0,0)",
-            font=dict(color="#f3f4f6", size=12),
-            title=dict(font=dict(size=16, color="#f9fafb")),
-            yaxis=dict(showgrid=True, gridcolor="rgba(255,255,255,0.08)", zeroline=False),
-            xaxis=dict(showgrid=False),
-            yaxis_title=None,
-            xaxis_title=None,
-            showlegend=False,
-        )
-        st.plotly_chart(fig_ecl, use_container_width=True)
+## 1. Vấn đề kinh doanh
 
-    # 2) NPL / Stage 3 Trend
-    with chart2:
-        trend = pd.DataFrame({
-            "Month": ["12/2024", "01/2025", "02/2025", "03/2025", "04/2025", "05/2025"],
-            "NPL / Stage 3": [16.1, 16.8, 17.3, 17.9, 18.4, 18.4],
-        })
-        fig_trend = px.line(
-            trend,
-            x="Month",
-            y="NPL / Stage 3",
-            markers=True,
-            text="NPL / Stage 3",
-            title="NPL / Stage 3 Trend (%)",
-        )
-        fig_trend.update_traces(
-            line=dict(color="#ef4444", width=3),
-            marker=dict(size=9, color="#ef4444"),
-            texttemplate="%{text:.1f}%",
-            textposition="top center",
-        )
-        fig_trend.update_layout(
-            template="plotly_dark",
-            height=330,
-            margin=dict(l=8, r=8, t=48, b=8),
-            paper_bgcolor="rgba(0,0,0,0)",
-            plot_bgcolor="rgba(0,0,0,0)",
-            font=dict(color="#f3f4f6", size=12),
-            title=dict(font=dict(size=16, color="#f9fafb")),
-            yaxis=dict(ticksuffix="%", range=[0, 25], showgrid=True, gridcolor="rgba(255,255,255,0.08)", zeroline=False),
-            xaxis=dict(showgrid=False),
-            yaxis_title=None,
-            xaxis_title=None,
-        )
-        st.plotly_chart(fig_trend, use_container_width=True)
+Ngân hàng cần kiểm soát:
 
-    # 3) Exposure by Industry donut chart
-    with chart3:
-        industry = (
-            filtered.groupby("industry", as_index=False)
-            .agg(exposure=("ead_bn_vnd", "sum"))
-            .sort_values("exposure", ascending=False)
-        )
-        fig_ind = px.pie(
-            industry,
-            names="industry",
-            values="exposure",
-            hole=0.55,
-            title="Exposure by Industry (bn VND)",
-        )
-        fig_ind.update_traces(
-            textinfo="percent",
-            textposition="inside",
-            marker=dict(line=dict(color="rgba(15,23,42,0.85)", width=2)),
-        )
-        fig_ind.update_layout(
-            template="plotly_dark",
-            height=330,
-            margin=dict(l=8, r=8, t=48, b=8),
-            paper_bgcolor="rgba(0,0,0,0)",
-            plot_bgcolor="rgba(0,0,0,0)",
-            font=dict(color="#f3f4f6", size=12),
-            title=dict(font=dict(size=16, color="#f9fafb")),
-            legend=dict(orientation="v", yanchor="middle", y=0.5, xanchor="left", x=1.02),
-            annotations=[
-                dict(
-                    text=f"{total:,.1f}<br>bn VND",
-                    x=0.5,
-                    y=0.5,
-                    font_size=18,
-                    showarrow=False,
-                    font_color="#ffffff",
-                )
-            ],
-        )
-        st.plotly_chart(fig_ind, use_container_width=True)
+- NPL
+- Stage 2
+- Tập trung ngành nghề
+- Policy exceptions
+- Hành động xử lý sau cảnh báo sớm
+- Tác động của stress testing lên dự phòng và vốn
 
-    # --- Top Alerts table: no Pandas Styler, so no AttributeError on Streamlit Cloud ---
-    st.markdown("### 🔔 Top Alerts")
-    alerts = pd.DataFrame({
-        "Alert": [
-            "Policy Breach: Single Borrower Limit",
-            "High Stage 2 Migration",
-            "Collateral Revaluation Needed",
-            "Industry Concentration Alert",
-        ],
-        "Category": ["Policy Breach", "EWS", "Collateral", "Concentration"],
-        "Level": ["High", "Medium", "Medium", "Low"],
-        "Description": [
-            "Exposure exceeds single borrower limit by 12.4%",
-            "Stage 2 loans increased by 9.7% MoM",
-            "15 facilities require collateral revaluation",
-            "Real Estate exposure > 25% of total portfolio",
-        ],
-        "Date": ["31/05/2026", "31/05/2026", "31/05/2026", "31/05/2026"],
-    })
-    st.dataframe(alerts, use_container_width=True, hide_index=True)
+---
+
+## 2. Ý nghĩa của từng tab (đánh số từ 1 đến 20)
+
+### 1. Executive Dashboard
+Tổng quan rủi ro tín dụng của ngân hàng: tổng dư nợ, ECL, stressed ECL, weighted PD, NPL/Stage 3 và policy breaches.
+
+### 2. Portfolio Overview
+Theo dõi chất lượng danh mục theo ngành, ECL, PD bình quân và EWS.
+
+### 3. Risk Appetite
+So sánh các chỉ tiêu rủi ro thực tế với khẩu vị rủi ro đã phê duyệt.
+
+### 4. Concentration
+Đo lường rủi ro tập trung theo ngành, nhóm khách hàng và top borrowers.
+
+### 5. Policy Rule Engine
+Kiểm tra các khoản vay vi phạm chính sách tín dụng, điều kiện cấp tín dụng và ngoại lệ.
+
+### 6. Limit Monitoring
+Theo dõi giới hạn single borrower, group borrower, ngành, collateral và Stage 2.
+
+### 7. Single Customer View
+Cung cấp góc nhìn 360 độ về từng khách hàng/khoản vay.
+
+### 8. Memo Generator
+Tạo bản nháp Credit Approval Memo từ dữ liệu khách hàng.
+
+### 9. EWS & External Alerts
+Kết hợp tín hiệu nội bộ và cảnh báo bên ngoài để phát hiện suy giảm sớm.
+
+### 10. IFRS9 & Stress
+Tính toán ECL theo IFRS9 và mô phỏng tác động của stress scenario.
+
+### 11. Migration
+Theo dõi ma trận chuyển hạng tín dụng, downgrade và default migration.
+
+### 12. Basel Capital
+Tính RWA, vốn yêu cầu và RAROC cho danh mục tín dụng.
+
+### 13. Watchlist & Actions
+Theo dõi khách hàng watchlist và tiến độ hành động quản lý.
+
+### 14. Board Pack Export
+Xuất báo cáo quản trị cho Ban điều hành/HĐQT/Ủy ban Rủi ro.
+
+### 15. Model Governance
+Quản trị mô hình: owner, validation, override rate, backtesting và limitation.
+
+### 16. ICAAP Lite
+Đánh giá mức đủ vốn nội bộ và CAR sau stress.
+
+### 17. Recovery Plan
+Đề xuất hành động phục hồi khi NPL, Stage 2 hoặc CAR vượt ngưỡng.
+
+### 18. Credit Strategy Simulator
+Mô phỏng tác động của chiến lược tăng/giảm tín dụng theo ngành.
+
+### 19. Collateral Haircut
+Đánh giá giá trị tài sản bảo đảm sau haircut và collateral shortfall.
+
+### 20. Risk Committee Pack
+Tạo bộ tài liệu phục vụ họp Ủy ban Rủi ro.
+
+---
+
+## 3. Điểm mạnh của platform này
+
+Kết hợp kinh nghiệm của tôi trong các lĩnh vực credit rating, corporate banking, macro analysis, credit risk management, IFRS9, Basel, stress testing, Python/Excel dashboard để chuyển dữ liệu tín dụng thành thông tin quản trị phục vụ điều hành danh mục tín dụng.
+""")
 
 elif selected_tab == menu_options[1]:
+    st.subheader("1️⃣ Executive Risk Dashboard")
+    c1,c2=st.columns(2)
+    stage=filtered.groupby("stage",as_index=False).agg(exposure=("ead_bn_vnd","sum"),ecl=("ecl_bn_vnd","sum"))
+    c1.plotly_chart(px.bar(stage,x="stage",y="exposure",title="Exposure by IFRS9 Stage"),use_container_width=True)
+    c2.plotly_chart(px.pie(stage,names="stage",values="ecl",title="ECL by Stage"),use_container_width=True)
+    st.markdown("**Management message:** kiểm soát Stage 2, ngành tập trung cao, policy breaches, high-EWS accounts và watchlist overdue actions.")
+
+elif selected_tab == menu_options[2]:
     st.subheader("2️⃣ Portfolio Quality")
     by_ind=filtered.groupby("industry",as_index=False).agg(exposure=("ead_bn_vnd","sum"),ecl=("ecl_bn_vnd","sum"),avg_pd=("pd_12m","mean"),avg_ews=("combined_ews_score","mean"))
     st.plotly_chart(px.bar(by_ind.sort_values("exposure",ascending=False),x="industry",y="exposure",title="Exposure by Industry"),use_container_width=True)
     st.dataframe(by_ind,use_container_width=True)
 
-elif selected_tab == menu_options[2]:
+elif selected_tab == menu_options[3]:
     st.subheader("3️⃣ Risk Appetite Monitoring")
     actuals=compute_risk_appetite(filtered)
     rows=[]
@@ -301,7 +257,7 @@ elif selected_tab == menu_options[2]:
     st.dataframe(ra.style.format({"Actual":"{:.2%}","Limit":"{:.2%}"}),use_container_width=True)
     st.plotly_chart(px.bar(ra,x="Metric",y="Actual",color="Status",title="Risk Appetite Actuals"),use_container_width=True)
 
-elif selected_tab == menu_options[3]:
+elif selected_tab == menu_options[4]:
     st.subheader("4️⃣ Concentration Risk")
     st.metric("Industry HHI",f"{hhi(filtered):.3f}")
     top=filtered.groupby(["group_id","industry"],as_index=False).agg(exposure=("ead_bn_vnd","sum")).sort_values("exposure",ascending=False).head(20)
@@ -310,7 +266,7 @@ elif selected_tab == menu_options[3]:
     c2.plotly_chart(px.treemap(filtered,path=["industry","group_id"],values="ead_bn_vnd",title="Concentration Treemap"),use_container_width=True)
     st.dataframe(top,use_container_width=True)
 
-elif selected_tab == menu_options[4]:
+elif selected_tab == menu_options[5]:
     st.subheader("5️⃣ Credit Policy Rule Engine")
     st.markdown("Rule engine giải thích khoản vay vi phạm điều khoản nào, mức độ nghiêm trọng và hành động quản lý đề xuất.")
     st.dataframe(policy_rules,use_container_width=True)
@@ -319,7 +275,7 @@ elif selected_tab == menu_options[4]:
     if not policy_table.empty:
         st.plotly_chart(px.histogram(policy_table,x="severity",color="rule_name",title="Policy Breaches by Severity"),use_container_width=True)
 
-elif selected_tab == menu_options[5]:
+elif selected_tab == menu_options[6]:
     st.subheader("6️⃣ Limit Monitoring")
     total_exp=filtered["ead_bn_vnd"].sum()
     lim_rows=[]
@@ -336,14 +292,14 @@ elif selected_tab == menu_options[5]:
     st.dataframe(lim.style.format({"Actual":"{:.2%}","Limit":"{:.2%}"}),use_container_width=True)
     st.plotly_chart(px.bar(lim,x="Limit type",y=["Actual","Limit"],barmode="group",title="Actual vs Limit"),use_container_width=True)
 
-elif selected_tab == menu_options[6]:
+elif selected_tab == menu_options[7]:
     st.subheader("7️⃣ Single Customer View")
     cust=st.selectbox("Select customer",filtered["customer_id"].sort_values().unique(), key="cust_view")
     one=filtered[filtered["customer_id"].eq(cust)]
     kpi_row([("Exposure",money(one["ead_bn_vnd"].sum()),None),("ECL",money(one["ecl_bn_vnd"].sum()),None),("Max EWS",f"{one['combined_ews_score'].max():.1f}",None),("Policy","Pass" if (one["policy_result"]=="Pass").all() else "Breach",None)])
     st.dataframe(one[["loan_id","group_id","industry","product","rating_grade","stage","ead_bn_vnd","pd_12m","lgd","ecl_bn_vnd","dpd","dscr","ltv","combined_ews_score","policy_result"]],use_container_width=True)
 
-elif selected_tab == menu_options[7]:
+elif selected_tab == menu_options[8]:
     st.subheader("8️⃣ Credit Approval Memo Generator")
     cust_memo=st.selectbox("Select customer for memo",filtered["customer_id"].sort_values().unique(), key="cust_memo")
     memo_df=filtered[filtered["customer_id"].eq(cust_memo)]
@@ -351,7 +307,7 @@ elif selected_tab == menu_options[7]:
     st.text_area("Generated memo", memo, height=470)
     st.download_button("⬇️ Download Credit Memo TXT", memo, file_name=f"credit_memo_{cust_memo}.txt")
 
-elif selected_tab == menu_options[8]:
+elif selected_tab == menu_options[9]:
     st.subheader("9️⃣ Early Warning System + External Alerts")
     c1,c2=st.columns(2)
     c1.plotly_chart(px.histogram(filtered,x="combined_ews_score",nbins=20,title="Combined EWS Distribution"),use_container_width=True)
@@ -360,20 +316,20 @@ elif selected_tab == menu_options[8]:
     st.dataframe(external_alerts,use_container_width=True)
     st.dataframe(filtered.sort_values("combined_ews_score",ascending=False)[["loan_id","customer_id","industry","stage","ead_bn_vnd","dpd","dscr","debt_to_ebitda","ltv","ews_score","external_alert_score","combined_ews_score"]],use_container_width=True,height=380)
 
-elif selected_tab == menu_options[9]:
+elif selected_tab == menu_options[10]:
     st.subheader("🔟 IFRS9 ECL & Stress Testing")
     ecl_stage=filtered.groupby("stage",as_index=False).agg(base_ecl=("ecl_bn_vnd","sum"),stressed_ecl=("stressed_ecl_bn_vnd","sum"))
     st.write(f"Selected scenario: **{scenario}** | PD multiplier: **{sc['pd_multiplier']:.2f}x** | LGD multiplier: **{sc['lgd_multiplier']:.2f}x**")
     st.plotly_chart(px.bar(ecl_stage,x="stage",y=["base_ecl","stressed_ecl"],barmode="group",title="Base vs Stressed ECL"),use_container_width=True)
     st.dataframe(ecl_stage,use_container_width=True)
 
-elif selected_tab == menu_options[10]:
+elif selected_tab == menu_options[11]:
     st.subheader("1️⃣1️⃣ Credit Migration Matrix")
     fig=px.imshow(migration,text_auto=".0%",aspect="auto",title="Rating Migration Matrix")
     st.plotly_chart(fig,use_container_width=True)
     st.dataframe(migration.style.format("{:.1%}"),use_container_width=True)
 
-elif selected_tab == menu_options[11]:
+elif selected_tab == menu_options[12]:
     st.subheader("1️⃣2️⃣ Basel II Capital & RAROC Lite")
     cap=filtered.copy()
     risk_weight=cap["rating_grade"].map({"AAA":0.5,"AA":0.6,"A":0.75,"BBB":1.0,"BB":1.25,"B":1.5,"CCC":2.0}).fillna(1.0)
@@ -384,14 +340,14 @@ elif selected_tab == menu_options[11]:
     kpi_row([("RWA",money(cap["rwa_bn_vnd"].sum()),None),("Capital required",money(cap["capital_required_bn_vnd"].sum()),None),("Portfolio RAROC",f"{raroc:.2%}",None)])
     st.plotly_chart(px.bar(cap.groupby("industry",as_index=False).agg(rwa=("rwa_bn_vnd","sum")),x="industry",y="rwa",title="RWA by Industry"),use_container_width=True)
 
-elif selected_tab == menu_options[12]:
+elif selected_tab == menu_options[13]:
     st.subheader("1️⃣3️⃣ Watchlist & Management Action Tracker")
     st.markdown("### Watchlist")
     st.dataframe(watchlist,use_container_width=True,height=240)
     st.markdown("### Management Action Tracker")
     st.dataframe(actions,use_container_width=True,height=260)
 
-elif selected_tab == menu_options[13]:
+elif selected_tab == menu_options[14]:
     st.subheader("1️⃣4️⃣ Board Pack Export")
     st.dataframe(board_template,use_container_width=True)
     board_report = build_board_report_text(total, ecl, stressed, scenario, weighted_pd, npl, stage23, hhi(filtered), top_industry, len(policy_table), high_ews_count)
@@ -401,36 +357,15 @@ elif selected_tab == menu_options[13]:
     if not policy_table.empty:
         st.download_button("⬇️ Download Policy Breaches CSV", policy_table.to_csv(index=False), file_name="NCB_Policy_Breaches.csv")
 
-elif selected_tab == menu_options[14]:
+elif selected_tab == menu_options[15]:
     st.subheader("1️⃣5️⃣ Model Governance & Validation")
     st.markdown("Quản trị mô hình cho PD, IFRS9 ECL, EWS: owner, version, validation date, backtesting, override rate, limitation và next action.")
     st.dataframe(model_gov.style.format({"override_rate":"{:.1%}"}),use_container_width=True)
     st.plotly_chart(px.bar(model_gov,x="model_name",y="override_rate",color="backtest_result",title="Model Override Rate"),use_container_width=True)
 
-elif selected_tab == menu_options[15]:
-    st.subheader("1️⃣6️⃣ NCB Interview Mode")
-    st.markdown("""
-### Cách trình bày trong phỏng vấn NCB Credit Risk Manager
-
-**1. Vấn đề kinh doanh:** Ngân hàng cần kiểm soát NPL, Stage 2, tập trung ngành, policy exceptions và hành động xử lý sau cảnh báo sớm.
-
-**2. Giải pháp của dashboard:**
-- Executive dashboard cho CRO/Ủy ban Rủi ro.
-- Risk Appetite và Limit Monitoring để kiểm soát khẩu vị rủi ro.
-- Policy Rule Engine để minh bạch hóa phê duyệt/ngoại lệ tín dụng.
-- Single Customer View và Memo Generator để hỗ trợ phê duyệt tín dụng.
-- EWS + External Alerts để phát hiện suy giảm chất lượng sớm.
-- IFRS9/Stress/Basel để lượng hóa tác động lên dự phòng và vốn.
-- Board Pack Export để chuẩn hóa báo cáo quản trị.
-
-**3. Điểm mạnh cá nhân:** Kết hợp kinh nghiệm credit rating, corporate banking, macro analysis và Python/Excel dashboard để chuyển dữ liệu tín dụng thành quyết định quản trị rủi ro.
-
-**4. Thông điệp chốt:** Đây không phải app IT đơn thuần, mà là mô hình điều hành danh mục tín dụng theo tư duy Credit Risk Manager/CRO Office.
-""")
-
 
 elif selected_tab == menu_options[16]:
-    st.subheader("1️⃣7️⃣ ICAAP Lite")
+    st.subheader("1️⃣6️⃣ ICAAP Lite")
     assumptions = dict(zip(icaap_assumptions['metric'], icaap_assumptions['value']))
     starting_car = st.slider("Starting CAR assumption", 0.08, 0.18, float(assumptions.get('starting_car',0.118)), 0.001, format="%.3f")
     min_car = float(assumptions.get('min_car_target',0.08))
@@ -446,7 +381,7 @@ elif selected_tab == menu_options[16]:
     st.markdown("ICAAP Lite giúp nối danh mục tín dụng → ECL stress → vốn → CAR sau stress, phù hợp demo cấp CRO Office.")
 
 elif selected_tab == menu_options[17]:
-    st.subheader("1️⃣8️⃣ Recovery Plan")
+    st.subheader("1️⃣7️⃣ Recovery Plan")
     actuals_for_recovery = compute_risk_appetite(filtered)
     actuals_for_recovery.update({
         'npl_ratio': npl,
@@ -461,7 +396,7 @@ elif selected_tab == menu_options[17]:
     st.dataframe(rec[rec['status'].eq('Breach')], use_container_width=True)
 
 elif selected_tab == menu_options[18]:
-    st.subheader("1️⃣9️⃣ Credit Strategy Simulator")
+    st.subheader("1️⃣8️⃣ Credit Strategy Simulator")
     strategy_name = st.selectbox("Select credit strategy", strategy_scenarios['strategy'].tolist())
     strat = strategy_scenarios[strategy_scenarios['strategy'].eq(strategy_name)].iloc[0]
     sim_df, sim_kpi = simulate_credit_strategy(filtered, strat)
@@ -476,7 +411,7 @@ elif selected_tab == menu_options[18]:
     st.dataframe(by_strategy, use_container_width=True)
 
 elif selected_tab == menu_options[19]:
-    st.subheader("2️⃣0️⃣ Collateral Haircut Engine")
+    st.subheader("1️⃣9️⃣ Collateral Haircut Engine")
     hc_scenario = st.radio("Haircut scenario", ['Base','Adverse'], horizontal=True)
     hc = collateral_haircut_analysis(filtered, haircuts, scenario=hc_scenario)
     kpi_row([
@@ -488,7 +423,7 @@ elif selected_tab == menu_options[19]:
     st.dataframe(hc[['loan_id','customer_id','collateral_type','ead_bn_vnd','ltv','haircut','post_haircut_collateral_bn_vnd','collateral_shortfall_bn_vnd']].sort_values('collateral_shortfall_bn_vnd', ascending=False), use_container_width=True, height=420)
 
 elif selected_tab == menu_options[20]:
-    st.subheader("2️⃣1️⃣ Risk Committee Pack")
+    st.subheader("2️⃣0️⃣ Risk Committee Pack")
     assumptions = dict(zip(icaap_assumptions['metric'], icaap_assumptions['value']))
     icaap = icaap_lite(filtered, starting_car=float(assumptions.get('starting_car',0.118)), min_car_target=float(assumptions.get('min_car_target',0.08)), management_buffer=float(assumptions.get('management_buffer',0.025)))
     actuals_for_recovery = {'npl_ratio': npl, 'stage2_ratio': stage23-npl, 'car': icaap['post_stress_car'], 'real_estate_exposure': filtered.loc[filtered['industry'].eq('Real Estate'),'ead_bn_vnd'].sum()/total if total else 0, 'high_ews_count': high_ews_count}
