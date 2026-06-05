@@ -234,11 +234,139 @@ Kết hợp kinh nghiệm của tôi trong các lĩnh vực credit rating, corpo
 
 elif selected_tab == menu_options[1]:
     st.subheader("1️⃣ Executive Risk Dashboard")
-    c1,c2=st.columns(2)
-    stage=filtered.groupby("stage",as_index=False).agg(exposure=("ead_bn_vnd","sum"),ecl=("ecl_bn_vnd","sum"))
-    c1.plotly_chart(px.bar(stage,x="stage",y="exposure",title="Exposure by IFRS9 Stage"),use_container_width=True)
-    c2.plotly_chart(px.pie(stage,names="stage",values="ecl",title="ECL by Stage"),use_container_width=True)
-    st.markdown("**Management message:** kiểm soát Stage 2, ngành tập trung cao, policy breaches, high-EWS accounts và watchlist overdue actions.")
+
+    chart1, chart2, chart3 = st.columns([1, 1.15, 1.15], gap="medium")
+
+    with chart1:
+        ecl_df = pd.DataFrame({
+            "Type": ["Base ECL", "Stressed ECL"],
+            "Value": [float(ecl), float(stressed)],
+        })
+        fig_ecl = px.bar(
+            ecl_df,
+            x="Type",
+            y="Value",
+            text="Value",
+            title="ECL Overview (bn VND)",
+            color="Type",
+            color_discrete_map={"Base ECL": "#3478f6", "Stressed ECL": "#ef4444"},
+        )
+        fig_ecl.update_traces(
+            texttemplate="%{text:.1f}",
+            textposition="outside",
+            marker_line_width=0,
+            showlegend=False,
+        )
+        fig_ecl.update_layout(
+            template="plotly_dark",
+            height=330,
+            margin=dict(l=8, r=8, t=48, b=8),
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            font=dict(color="#f3f4f6", size=12),
+            title=dict(font=dict(size=16, color="#f9fafb")),
+            yaxis=dict(showgrid=True, gridcolor="rgba(255,255,255,0.08)", zeroline=False),
+            xaxis=dict(showgrid=False),
+            yaxis_title=None,
+            xaxis_title=None,
+            showlegend=False,
+        )
+        st.plotly_chart(fig_ecl, use_container_width=True)
+
+    with chart2:
+        trend = pd.DataFrame({
+            "Month": ["12/2024", "01/2025", "02/2025", "03/2025", "04/2025", "05/2025"],
+            "NPL / Stage 3": [16.1, 16.8, 17.3, 17.9, 18.4, 18.4],
+        })
+        fig_trend = px.line(
+            trend,
+            x="Month",
+            y="NPL / Stage 3",
+            markers=True,
+            text="NPL / Stage 3",
+            title="NPL / Stage 3 Trend (%)",
+        )
+        fig_trend.update_traces(
+            line=dict(color="#ef4444", width=3),
+            marker=dict(size=9, color="#ef4444"),
+            texttemplate="%{text:.1f}%",
+            textposition="top center",
+        )
+        fig_trend.update_layout(
+            template="plotly_dark",
+            height=330,
+            margin=dict(l=8, r=8, t=48, b=8),
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            font=dict(color="#f3f4f6", size=12),
+            title=dict(font=dict(size=16, color="#f9fafb")),
+            yaxis=dict(ticksuffix="%", range=[0, 25], showgrid=True, gridcolor="rgba(255,255,255,0.08)", zeroline=False),
+            xaxis=dict(showgrid=False),
+            yaxis_title=None,
+            xaxis_title=None,
+        )
+        st.plotly_chart(fig_trend, use_container_width=True)
+
+    with chart3:
+        industry = (
+            filtered.groupby("industry", as_index=False)
+            .agg(exposure=("ead_bn_vnd", "sum"))
+            .sort_values("exposure", ascending=False)
+        )
+        fig_ind = px.pie(
+            industry,
+            names="industry",
+            values="exposure",
+            hole=0.55,
+            title="Exposure by Industry (bn VND)",
+        )
+        fig_ind.update_traces(
+            textinfo="percent",
+            textposition="inside",
+            marker=dict(line=dict(color="rgba(15,23,42,0.85)", width=2)),
+        )
+        fig_ind.update_layout(
+            template="plotly_dark",
+            height=330,
+            margin=dict(l=8, r=8, t=48, b=8),
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            font=dict(color="#f3f4f6", size=12),
+            title=dict(font=dict(size=16, color="#f9fafb")),
+            legend=dict(orientation="v", yanchor="middle", y=0.5, xanchor="left", x=1.02),
+            annotations=[
+                dict(
+                    text=f"{total:,.1f}<br>bn VND",
+                    x=0.5,
+                    y=0.5,
+                    font_size=18,
+                    showarrow=False,
+                    font_color="#ffffff",
+                )
+            ],
+        )
+        st.plotly_chart(fig_ind, use_container_width=True)
+
+    st.markdown("### 🔔 Top Alerts")
+    alerts = pd.DataFrame({
+        "Alert": [
+            "Policy Breach: Single Borrower Limit",
+            "High Stage 2 Migration",
+            "Collateral Revaluation Needed",
+            "Industry Concentration Alert",
+        ],
+        "Category": ["Policy Breach", "EWS", "Collateral", "Concentration"],
+        "Level": ["High", "Medium", "Medium", "Low"],
+        "Description": [
+            "Exposure exceeds single borrower limit by 12.4%",
+            "Stage 2 loans increased by 9.7% MoM",
+            "15 facilities require collateral revaluation",
+            "Real Estate exposure > 25% of total portfolio",
+        ],
+        "Date": ["31/05/2026", "31/05/2026", "31/05/2026", "31/05/2026"],
+    })
+    st.dataframe(alerts, use_container_width=True, hide_index=True)
+
 
 elif selected_tab == menu_options[2]:
     st.subheader("2️⃣ Portfolio Quality")
