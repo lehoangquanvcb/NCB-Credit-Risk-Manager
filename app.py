@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 import plotly.express as px
-import plotly.graph_objects as go
 from modules.risk_calculations import (
     compute_risk_appetite, status, hhi, ews_score, policy_breaches, stress_ecl,
     apply_policy_rule_engine, generate_credit_memo, build_board_report_text, collateral_haircut_analysis, icaap_lite, recovery_plan_assessment, simulate_credit_strategy, build_risk_committee_pack
@@ -54,148 +53,21 @@ def kpi_row(items):
 
 st.markdown("""
 <style>
-    .block-container {
-        padding-top: 1.2rem;
-        padding-bottom: 2rem;
-        max-width: 100%;
-    }
-
-    [data-testid="stSidebar"] {
-        min-width: 315px;
-        max-width: 315px;
-        background: linear-gradient(180deg, #111823 0%, #0b1119 100%);
-    }
-
-    [data-testid="stSidebar"] h1,
-    [data-testid="stSidebar"] h2,
-    [data-testid="stSidebar"] h3 {
-        color: #ffffff;
-    }
-
+    .block-container {padding-top: 1.5rem; padding-bottom: 2rem;}
+    [data-testid="stSidebar"] {min-width: 315px; max-width: 315px;}
+    [data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3 {color: #ffffff;}
     div[data-testid="stMetric"] {
-        background: linear-gradient(145deg, rgba(25,34,46,0.96), rgba(13,19,28,0.96));
+        background: rgba(255,255,255,0.035);
         border: 1px solid rgba(255,255,255,0.08);
         border-radius: 14px;
         padding: 16px 18px;
-        box-shadow: 0 8px 22px rgba(0,0,0,0.20);
     }
-
     .ncb-sidebar-title {
-        display:flex;
-        align-items:center;
-        gap:12px;
-        margin: 6px 0 22px 0;
-        font-size: 21px;
-        font-weight: 800;
-        line-height:1.15;
+        display:flex; align-items:center; gap:12px; margin: 6px 0 22px 0;
+        font-size: 21px; font-weight: 800; line-height:1.15;
     }
-
     .ncb-sidebar-title .logo {font-size: 34px;}
-
-    .ncb-sidebar-section {
-        font-size: 13px;
-        color:#a6adbb;
-        font-weight:700;
-        margin: 18px 0 8px 0;
-    }
-
-    .exec-title {
-        display:flex;
-        align-items:center;
-        gap:12px;
-        margin: 6px 0 18px 0;
-    }
-
-    .exec-badge {
-        background: linear-gradient(135deg, #4c8dff, #2367d9);
-        color:#fff;
-        border-radius:7px;
-        padding:5px 10px;
-        font-weight:800;
-        font-size:22px;
-        line-height:1;
-        box-shadow: 0 3px 10px rgba(66,133,244,0.35);
-    }
-
-    .exec-heading {
-        color:#ffffff;
-        font-size:26px;
-        font-weight:800;
-        line-height:1.2;
-    }
-
-    .chart-card {
-        background: linear-gradient(145deg, rgba(24,33,45,0.98), rgba(13,19,28,0.98));
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 12px;
-        padding: 14px 16px 8px 16px;
-        box-shadow: 0 8px 22px rgba(0,0,0,0.22);
-        min-height: 330px;
-    }
-
-    .alerts-card {
-        background: linear-gradient(145deg, rgba(24,33,45,0.98), rgba(13,19,28,0.98));
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 12px;
-        padding: 18px 20px 18px 20px;
-        margin-top: 14px;
-        box-shadow: 0 8px 22px rgba(0,0,0,0.22);
-    }
-
-    .alerts-title {
-        display:flex;
-        align-items:center;
-        gap:10px;
-        color:#ffffff;
-        font-size:23px;
-        font-weight:800;
-        margin-bottom:12px;
-    }
-
-    .alerts-table {
-        width:100%;
-        border-collapse:collapse;
-        color:#e9edf5;
-        font-size:13px;
-    }
-
-    .alerts-table th {
-        color:#ffffff;
-        font-weight:700;
-        text-align:left;
-        padding: 9px 8px;
-        border-bottom:1px solid rgba(255,255,255,0.10);
-    }
-
-    .alerts-table td {
-        padding: 9px 8px;
-        border-bottom:1px solid rgba(255,255,255,0.07);
-        color:#e7ebf2;
-    }
-
-    .badge-high {
-        background:#ff4d4f;
-        color:#fff;
-        padding:3px 8px;
-        border-radius:6px;
-        font-weight:700;
-    }
-
-    .badge-medium {
-        background:#f59f2a;
-        color:#fff;
-        padding:3px 8px;
-        border-radius:6px;
-        font-weight:700;
-    }
-
-    .badge-low {
-        background:#2f9e5b;
-        color:#fff;
-        padding:3px 8px;
-        border-radius:6px;
-        font-weight:700;
-    }
+    .ncb-sidebar-section {font-size: 13px; color:#a6adbb; font-weight:700; margin: 18px 0 8px 0;}
 </style>
 """, unsafe_allow_html=True)
 
@@ -272,176 +144,13 @@ kpi_row([
 ])
 
 
-def apply_dark_fig_layout(fig, height=285, showlegend=True):
-    fig.update_layout(
-        height=height,
-        margin=dict(l=10, r=10, t=42, b=10),
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
-        font=dict(color="#E9EDF5", size=12),
-        title_font=dict(color="#FFFFFF", size=16),
-        legend=dict(font=dict(color="#E9EDF5", size=12)),
-        showlegend=showlegend,
-    )
-    fig.update_xaxes(gridcolor="rgba(255,255,255,0.08)", zerolinecolor="rgba(255,255,255,0.08)")
-    fig.update_yaxes(gridcolor="rgba(255,255,255,0.08)", zerolinecolor="rgba(255,255,255,0.08)")
-    return fig
-
-
-def render_level_badge(level):
-    css_class = {
-        "High": "badge-high",
-        "Medium": "badge-medium",
-        "Low": "badge-low",
-    }.get(str(level), "badge-low")
-    return f'<span class="{css_class}">{level}</span>'
-
-
-def render_alerts_table(alerts_df):
-    rows = []
-    for _, r in alerts_df.iterrows():
-        rows.append(
-            "<tr>"
-            f"<td>{r['Alert']}</td>"
-            f"<td>{r['Category']}</td>"
-            f"<td>{render_level_badge(r['Level'])}</td>"
-            f"<td>{r['Description']}</td>"
-            f"<td>{r['Date']}</td>"
-            "</tr>"
-        )
-    html = (
-        '<div class="alerts-card">'
-        '<div class="alerts-title">🔔 <span>Top Alerts</span></div>'
-        '<table class="alerts-table">'
-        '<thead><tr><th>Alert</th><th>Category</th><th>Level</th><th>Description</th><th>Date</th></tr></thead>'
-        '<tbody>'
-        + "".join(rows)
-        + '</tbody></table></div>'
-    )
-    st.markdown(html, unsafe_allow_html=True)
-
-
-
 if selected_tab == menu_options[0]:
-    st.markdown(
-        """
-        <div class="exec-title">
-            <div class="exec-badge">1</div>
-            <div class="exec-heading">Executive Risk Dashboard</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    # --- Row 1: three executive chart cards ---
-    chart_cols = st.columns([1.0, 1.15, 1.15], gap="medium")
-
-    with chart_cols[0]:
-        st.markdown('<div class="chart-card">', unsafe_allow_html=True)
-        ecl_fig = go.Figure()
-        ecl_fig.add_trace(go.Bar(
-            x=["Base ECL", "Stressed ECL"],
-            y=[ecl, stressed],
-            text=[f"{ecl:,.1f}", f"{stressed:,.1f}"],
-            textposition="outside",
-            marker_color=["#3478F6", "#FF4D4F"],
-            width=[0.48, 0.48],
-        ))
-        ecl_fig.update_layout(title="ECL Overview (bn VND)")
-        ecl_fig.update_yaxes(range=[0, max(stressed, ecl) * 1.35 if max(stressed, ecl) > 0 else 100])
-        ecl_fig = apply_dark_fig_layout(ecl_fig, height=285, showlegend=False)
-        st.plotly_chart(ecl_fig, use_container_width=True, config={"displayModeBar": False})
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    with chart_cols[1]:
-        st.markdown('<div class="chart-card">', unsafe_allow_html=True)
-        trend_df = pd.DataFrame({
-            "month": ["12/2024", "01/2025", "02/2025", "03/2025", "04/2025", "05/2025"],
-            "npl_stage3_pct": [16.1, 16.8, 17.3, 17.9, 18.4, 18.4],
-        })
-        trend_fig = go.Figure()
-        trend_fig.add_trace(go.Scatter(
-            x=trend_df["month"],
-            y=trend_df["npl_stage3_pct"],
-            mode="lines+markers+text",
-            text=[f"{v:.1f}%" for v in trend_df["npl_stage3_pct"]],
-            textposition="top center",
-            line=dict(color="#FF4D4F", width=3),
-            marker=dict(color="#FF4D4F", size=8),
-        ))
-        trend_fig.update_layout(title="NPL / Stage 3 Trend (%)")
-        trend_fig.update_yaxes(range=[0, 25], ticksuffix="%")
-        trend_fig = apply_dark_fig_layout(trend_fig, height=285, showlegend=False)
-        st.plotly_chart(trend_fig, use_container_width=True, config={"displayModeBar": False})
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    with chart_cols[2]:
-        st.markdown('<div class="chart-card">', unsafe_allow_html=True)
-        industry_df = filtered.groupby("industry", as_index=False).agg(exposure=("ead_bn_vnd", "sum"))
-        if not industry_df.empty:
-            industry_df["share"] = industry_df["exposure"] / industry_df["exposure"].sum()
-            industry_df = industry_df.sort_values("exposure", ascending=False)
-        donut_fig = go.Figure(data=[go.Pie(
-            labels=industry_df["industry"] if not industry_df.empty else [],
-            values=industry_df["exposure"] if not industry_df.empty else [],
-            hole=0.52,
-            textinfo="none",
-            marker=dict(colors=["#3478F6", "#FF4D4F", "#FDBA4B", "#4ECDC4", "#7E79E6", "#8AA1B1"]),
-        )])
-        donut_fig.update_layout(
-            title="Exposure by Industry (bn VND)",
-            annotations=[dict(
-                text=f"{total:,.1f}<br>bn VND",
-                x=0.32,
-                y=0.5,
-                font=dict(size=18, color="#FFFFFF"),
-                showarrow=False,
-            )],
-        )
-        donut_fig = apply_dark_fig_layout(donut_fig, height=285, showlegend=True)
-        donut_fig.update_traces(
-            hovertemplate="%{label}<br>%{value:,.1f} bn VND<br>%{percent}<extra></extra>"
-        )
-        st.plotly_chart(donut_fig, use_container_width=True, config={"displayModeBar": False})
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    # --- Row 2: Top Alerts card ---
-    real_estate_share = (
-        filtered.loc[filtered["industry"].eq("Real Estate"), "ead_bn_vnd"].sum() / total
-        if total else 0
-    )
-    alerts = pd.DataFrame([
-        {
-            "Alert": "Policy Breach: Single Borrower Limit",
-            "Category": "Policy Breach",
-            "Level": "High",
-            "Description": "Exposure exceeds single borrower limit by 12.4%",
-            "Date": "31/05/2026",
-        },
-        {
-            "Alert": "High Stage 2 Migration",
-            "Category": "EWS",
-            "Level": "Medium",
-            "Description": f"Stage 2 loans account for {stage23 - npl:.1%} of total portfolio",
-            "Date": "31/05/2026",
-        },
-        {
-            "Alert": "Collateral Revaluation Needed",
-            "Category": "Collateral",
-            "Level": "Medium",
-            "Description": "15 facilities require collateral revaluation",
-            "Date": "31/05/2026",
-        },
-        {
-            "Alert": "Industry Concentration Alert",
-            "Category": "Concentration",
-            "Level": "Low",
-            "Description": f"Real Estate exposure = {real_estate_share:.1%} of total portfolio",
-            "Date": "31/05/2026",
-        },
-    ])
-    render_alerts_table(alerts)
-
+    st.subheader("1️⃣ Executive Risk Dashboard")
+    c1,c2=st.columns(2)
+    stage=filtered.groupby("stage",as_index=False).agg(exposure=("ead_bn_vnd","sum"),ecl=("ecl_bn_vnd","sum"))
+    c1.plotly_chart(px.bar(stage,x="stage",y="exposure",title="Exposure by IFRS9 Stage"),use_container_width=True)
+    c2.plotly_chart(px.pie(stage,names="stage",values="ecl",title="ECL by Stage"),use_container_width=True)
+    st.markdown("**Management message:** kiểm soát Stage 2, ngành tập trung cao, policy breaches, high-EWS accounts và watchlist overdue actions.")
 
 elif selected_tab == menu_options[1]:
     st.subheader("2️⃣ Portfolio Quality")
